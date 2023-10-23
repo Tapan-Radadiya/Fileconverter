@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Converter</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <form action="/docToPdf" method="post" enctype="multipart/form-data">
+      <p>Doc TO PDF</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download PDF File" />
+    </form>
+    <form action="/jpgToPng" method="post" enctype="multipart/form-data">
+      <p>JPG TO PNG</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/pngToJpg" method="post" enctype="multipart/form-data">
+      <p>PNG TO JPG</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/webpToJpg" method="post" enctype="multipart/form-data">
+      <p>WEBP to JPG</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/webpTopng" method="post" enctype="multipart/form-data">
+      <p>WEBP to PNG</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/pngToWebp" method="post" enctype="multipart/form-data">
+      <p>PNG To WEBP</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/jpgToWebp" method="post" enctype="multipart/form-data">
+      <p>JPG To WEBP</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/mp4Tomp3" method="post" enctype="multipart/form-data">
+      <p>MP4 To MP3</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/mp4Toavi" method="post" enctype="multipart/form-data">
+      <p>MP4 To AVI</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/mp4Tomov" method="post" enctype="multipart/form-data">
+      <p>MP4 To MOV</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/mp3Toavi" method="post" enctype="multipart/form-data">
+      <p>MP3 To AVI</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/aviTomp3" method="post" enctype="multipart/form-data">
+      <p>AVI To MP3</p>
+      <input type="file" name="file" id="" required />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/ytVideo" method="post">
+      <p>Download Youtube video from the url</p>
+      <input
+        type="url"
+        name="Yturl"
+        id=""
+        required
+        placeholder="Enter Video Url"
+      />
+      <input type="submit" value="Download File" />
+    </form>
+    <form action="/ytAudio" method="post">
+      <p>Download Youtube Audio from the url</p>
+      <input
+        type="url"
+        name="Yturl"
+        id=""
+        placeholder="Enter Video Url"
+        required
+      />
+      <input type="submit" value="Download File" />
+    </form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

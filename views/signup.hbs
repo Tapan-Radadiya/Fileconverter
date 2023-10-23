@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | File Converter</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="/Css/signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+
+    <div class="error-div" {{#unless error}} style="display: none;"{{/unless}}>
+      {{#if error}}
+        <div class="errormsg">
+          <p>{{error}}
+            <span class="close-btn"><i
+                class="fa-solid fa-xmark fa-fade"
+              ></i></span>
+          </p>
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="main-content">
+      <div class="content">
+        <div class="image-content">
+          <img class="img1" src="../images/signup.png" alt="" />
+        </div>
+        <form action="/signup" name = "loginDetails" method="post">
+          <div class="login-page">
+            <h1>Sign Up</h1>
+            <div class="login-details">
+              <label for="userName" class="labels">UserName</label>
+              <input
+                type="text"
+                id="userName"
+                class="loginDetails"
+                name="userName"
+                placeholder="you@name"
+                required
+              />
+              <label for="userEmail" class="labels">Email Address</label>
+              <input
+                type="email"
+                id="userEmail"
+                class="loginDetails"
+                name="userEmail"
+                placeholder="Your@example.com"
+                required
+              />
+              <label for="userPassword" class="labels">Password</label>
+              <input
+                type="password"
+                id="userPassword"
+                class="loginDetails"
+                name="userPassword"
+                placeholder="Enter Character or More"
+                oninput="checkPasswordStrength()"
+                required
+              />
+            </div>
+            <div class="passwordStrength"><p style="margin-bottom: -20px;color:black;font-weight: bolder;font-size: 20px;" id="strengthIndicator"></p></div>
+            <div class="submit-btn">
+              <input type="submit" id="sign-up-btn" value="login" class="login-btn" />
+            </div>
+            <div class="signup-board">
+              <h3 class="signup-option">
+                Already Have Account ?
+                <a href="/login"><span>Log In</span></a>
+              </h3>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+
+function checkPasswordStrength() {
+  const password = document.getElementById("userPassword").value;
+  const strengthIndicators = document.getElementById("strengthIndicator");
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasNumbers = /\d/.test(password);
+  const hasSpecialChar = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password);
+
+  if (password.length < 8) {
+    strengthIndicators.innerHTML = "Very Weak";
+    strengthIndicators.style.color = "red";
+    disableButton(true)
+  } else if (hasUppercase && hasLowercase && hasNumbers && hasSpecialChar) {
+    strengthIndicators.innerHTML = "Very Strong";
+    strengthIndicators.style.color = "#33ff33";
+    disableButton(false)
+  } else if (hasUppercase || hasLowercase || hasNumbers || hasSpecialChar) {
+    strengthIndicators.innerHTML = "Strong";
+    strengthIndicators.style.color = "blue";
+    disableButton(false)
+  } else {
+    strengthIndicators.innerHTML = "Weak";
+    strengthIndicators.style.color = "orange";
+    disableButton(false)
+  }
+}
+function disableButton(disable){
+  const loginButton = document.getElementById("sign-up-btn");
+  loginButton.disabled = disable
+}
+
+      $(document).ready(function () {
+    // Add a click event listener to the close button
+    $('.close-btn').click(function () {
+        // Hide the error-div when the close button is clicked
+        $('.error-div').hide();
+    });
+});
+</script>
+    
+  </body>
+</html>

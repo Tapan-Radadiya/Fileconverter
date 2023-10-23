@@ -1,0 +1,128 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../Css/style.css" />
+    <title>File Converter</title>
+  </head>
+  <body>
+    {{! Nav Bar }}
+     <div class="error-div" {{#unless errorLogin}} style="display: none;"{{/unless}}>
+        {{#if errorLogin}}
+        <div class="errMsg">
+          <p>Welcome! Log in for a Personalized Experience</p>
+        </div>
+        {{/if}}
+      </div>
+    <!-- Nav Bar -->
+    <div class="navbar">
+      <a href="#" class="logo">File Converter</a>
+      <div class="user-status">
+
+        <span style="font-size: 20px; font-weight: bolder; ">&nbsp;
+          {{user}}</span>
+        <img
+          id="user-logo"
+          class="user-logo"
+          src="images/user.png"
+          alt="User Image"
+        />
+        {{#if error}}
+          <a href="/login" class="logout-btn">&nbsp;&nbsp;| Login</a>
+        {{else if success}}
+          <a href="/logout" class="logout-btn">&nbsp;&nbsp;| Logout</a>
+        {{/if}}
+      </div>
+    </div>
+    <!-- Nav Bar -->
+    <!-- Main file -->
+    <div class="file-converter-details">
+      <h2>Welcome to File Converter your one-stop solution for file format
+        conversions!</h2>
+      <h4>File Converter convert your files online on desire format</h4>
+    </div>
+    <div class="main-content">
+      <!-- For document -->
+      <div class="dropdown">
+        <button class="dropbtn" style="font-size: 35px;">Document File</button>
+        <div class="dropdown-content">
+          <a href="/DocToPdf">DOC TO PDF</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn" style="font-size: 35px;">Image File</button>
+        <div class="dropdown-content">
+          <a href="/JpgToPng">JPG TO PNG</a>
+          <a href="/PngToJpg">PNG TO JPG</a>
+          <a
+            href="/JpgToWebp
+          "
+          >JPG TO WEBP</a>
+          <a href="/PngToWebp">PNG TO WEBP</a>
+          <a href="/WebpToJpg">WEBP TO JPG</a>
+          <a href="/WebpToPng">WEBP TO PNG</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn" style="font-size: 35px;">Media file</button>
+        <div class="dropdown-content">
+          <a href="/Mp4ToMp3">MP4 TO MP3</a>
+          <a href="/Mp4ToAvi">MP4 TO AVI</a>
+          <a href="/Mp4ToMov">MP4 TO MOV</a>
+          <a href="/Mp3ToAvi">MP3 To AVI</a>
+          <a href="/AviToMp3">AVI To MP3</a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Total files converted by user {{fileConverted}}</p>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () { $("#user-logo").click(function () {
+      $("#user-options").toggle(); }); $(document).click(function (event) { if (
+      !$(event.target).closest("#user-options").length &&
+      !$(event.target).is("#user-logo") ) { $("#user-options").hide(); } }); });
+    </script>
+  </body>
+</html>

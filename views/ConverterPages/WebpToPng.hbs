@@ -1,0 +1,124 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../Css/style2.css" />
+    <title>File Converter</title>
+  </head>
+  <body>
+        <div class="error-div" {{#unless error}} style="display: none;"{{/unless}}>
+      {{#if error}}
+        <div class="errormsg">
+          <p>{{error}}
+            <span class="close-btn"><i
+                class="fa-solid fa-xmark fa-fade"
+              ></i></span>
+          </p>
+        </div>
+      {{/if}}
+    </div>
+    <div class="navbar">
+      <a href="/" class="logo">File Converter</a>
+      <div class="user-status">
+
+        <span style="font-size: 20px; font-weight: bolder; ">&nbsp;
+          {{user}}</span>
+        <img
+          id="user-logo"
+          class="user-logo"
+          src="images/user.png"
+          alt="User Image"
+        />
+        <a href="/logout" class="logout-btn">&nbsp;&nbsp;| Logout</a>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="header-part">
+        <h1 class="header-part-title">Convert WEBP TO PNG</h1>
+        <h2 class="header-part-subtitle">
+          Convert Your WEBP File Into PNG File
+        </h2>
+      </div>
+      <div class="file-upload-button">
+        <form action="/webpTopng" method="post" enctype="multipart/form-data">
+          <div class="file-upload">
+            <input
+              type="file"
+              name="file"
+              id="fileInput"
+              class="file-input"
+              required
+              accept=".webp"
+              onchange="getFileName(this)"
+              required
+            />
+
+            <label for="fileInput" class="custom-label"> Choose File</label>
+            <div class="fileNameConverter">
+              <span id="file-name" class="custome-file-name">No file selected</span>
+            </div>
+            <div class="download-button">
+              <input
+                type="submit"
+                value="submit"
+                class="download-content"
+                id="download-button"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = hideDownload(); $(document).ready(function () {
+      $("#user-logo").click(function () { $("#user-options").toggle(); });
+      $(document).click(function (event) { if (
+      !$(event.target).closest("#user-options").length &&
+      !$(event.target).is("#user-logo") ) { $("#user-options").hide(); } }); });
+      function hideDownload() {
+      document.getElementById("download-button").style.visibility = "hidden"; }
+      function getFileName(input) { const fileName =
+      document.getElementById("file-name"); if (input.files.length > 0) {
+      fileName.textContent = input.files[0].name;
+      document.getElementById("download-button").style.visibility = "visible"; }
+      else { fileName.textContent = "No file selected"; } }
+    </script>
+  </body>
+</html>

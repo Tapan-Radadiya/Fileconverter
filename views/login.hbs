@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | File Converter</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="Css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="error-div" {{#unless error}} style="display: none;"{{/unless}}>
+      {{#if error}}
+        <div class="errormsg">
+          <p>{{error}}
+            <span class="close-btn"><i
+                class="fa-solid fa-xmark fa-fade"
+              ></i></span>
+          </p>
+        </div>
+      {{/if}}
+    </div>
+    <div class="main-content">
+      <div class="content">
+        <div class="image-content">
+          <img class="img1" src="./images/Mobile wireframe-amico.png" alt="" />
+        </div>
+        <form action="/login" method="post">
+          <div class="login-page">
+            <h1>Login</h1>
+            <div class="login-details">
+              <label for="userEmail" class="labels">Email Address</label>
+              <input
+                type="email"
+                id="userEmail"
+                class="loginDetails"
+                name="emailId"
+                placeholder="Your@example.com"
+                required
+              />
+              <label for="userPassword" class="labels">Password</label>
+              <input
+                type="password"
+                id="userPassword"
+                class="loginDetails"
+                name="password"
+                placeholder="Enter Character or More"
+                required
+              />
+            </div>
+            {{!-- <div class="remember-me">
+              <input type="checkbox" id="rememberMe" />
+              <label for="rememberMe" class="rememberMe-label">Remember Me</label>
+            </div> --}}
+            <div class="submit-btn">
+              <input type="submit" value="login" class="login-btn" />
+            </div>
+            <div class="signup-board">
+              <h3 class="signup-option">
+                Dont Have Account ?
+                <a href="/signup"><span>Sign Up</span></a>
+              </h3>
+              <h3 class="signup-option">
+                Go back to<a href="/"><span> Home</span></a>
+                page
+              </h3>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>$(document).ready(function () {
+    // Add a click event listener to the close button
+    $('.close-btn').click(function () {
+        // Hide the error-div when the close button is clicked
+        $('.error-div').hide();
+    });
+});
+</script>
+  </body>
+</html>
